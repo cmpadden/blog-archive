@@ -1,0 +1,6 @@
+[submodule "mdi-mkdocs"]
+	path = mdi-mkdocs
+	url = git@github.com:cmpadden/gu-mdi-docs.git
+[submodule "themes/hugo-grapes"]
+	path = themes/hugo-grapes
+	url = git@github.com:shankar/hugo-grapes.git
