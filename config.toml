@@ -1,4 +1,6 @@
 baseurl = "https://cmpadden.github.io/blog/"
+publishDir = "docs"
+
 title = "Blog"
 languageCode = "en-us"
 
