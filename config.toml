@@ -1,25 +1,9 @@
 baseurl = "https://cmpadden.github.io/blog/"
-languageCode = "en-us"
 title = "Blog"
-theme = "hugo-grapes"
-enableEmoji = true
+languageCode = "en-us"
 
-[permalinks]
-  post = "/posts/:slug/"
-
-[menu]
-
-  [[menu.main]]
-    identifier = "home"
-    name = "Home"
-    url = "/"
-    weight = 10
-
-  [[menu.main]]
-    identifier = "posts"
-    name = "Posts"
-    url = "/posts"
-    weight = 20
+theme = "hugo-theme-minos"
+paginate = 10
 
 [params]
-avatar = "img/avatar.svg"
+    smartToc = false
