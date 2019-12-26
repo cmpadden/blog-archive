@@ -1,9 +1,9 @@
 ---
-title: "Firmware Upgrade on the PCEngines APU2"
+title: "Upgrading the Firmware on the PCEngines APU2"
 date: 2019-12-21
 draft: false
 tags: ["pcengine", "apu"]
-categories: ["linux"]
+categories: ["linux", "sysadmin"]
 ---
 
 I've had a [PCEngines APU2](https://pcengines.ch/apu2.htm) gathering dust for a
@@ -43,8 +43,6 @@ And finally, we will flash the firmware...
 ```bash
 sudo flashrom -w apu2_v4.11.0.1.rom -p internal:boardmismatch=force
 ```
-
-It doesn't get much more simple than that!
 
 **References:**
 

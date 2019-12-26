@@ -6,7 +6,7 @@
     <description>Recent content in Categories on Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 21 Dec 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 26 Dec 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://cmpadden.github.io/blog/categories/index.xml" rel="self" type="application/rss+xml" />
     
@@ -14,9 +14,18 @@
     <item>
       <title>linux</title>
       <link>https://cmpadden.github.io/blog/categories/linux/</link>
-      <pubDate>Sat, 21 Dec 2019 00:00:00 +0000</pubDate>
+      <pubDate>Thu, 26 Dec 2019 00:00:00 +0000</pubDate>
       
       <guid>https://cmpadden.github.io/blog/categories/linux/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>sysadmin</title>
+      <link>https://cmpadden.github.io/blog/categories/sysadmin/</link>
+      <pubDate>Thu, 26 Dec 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://cmpadden.github.io/blog/categories/sysadmin/</guid>
       <description></description>
     </item>
     

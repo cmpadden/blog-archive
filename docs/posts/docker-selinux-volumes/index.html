@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Upgrading the Firmware on the PCEngines APU2 // Blog</title>
+    <title>Docker Volume Permissions with SELinux // Blog</title>
 
     <meta charset="utf-8">
     <meta http-equiv="content-type" content="text/html; charset=utf-8">
@@ -10,11 +10,11 @@
     
     
 
-        <meta property="og:title" content="Upgrading the Firmware on the PCEngines APU2" />
+        <meta property="og:title" content="Docker Volume Permissions with SELinux" />
     <meta property="og:description" content="" />
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="en" />
-    <meta property="og:url" content="https://cmpadden.github.io/blog/posts/apu2-firmware-upgrade/" />
+    <meta property="og:url" content="https://cmpadden.github.io/blog/posts/docker-selinux-volumes/" />
     
 
     <link rel="shortcut icon" href="/favicon.ico">
@@ -52,12 +52,12 @@
     <div class="article-inner">
         
         <header class="article-header">
-            <h1 class="article-title" itemprop="name">Upgrading the Firmware on the PCEngines APU2</h1>
+            <h1 class="article-title" itemprop="name">Docker Volume Permissions with SELinux</h1>
         </header>
         
         <div class="article-meta">
-            <a href="/blog/posts/apu2-firmware-upgrade/" class="article-date">
-                <time datetime='2019-12-21T00:00:00.000&#43;00:00' itemprop="datePublished">2019-12-21</time>
+            <a href="/blog/posts/docker-selinux-volumes/" class="article-date">
+                <time datetime='2019-12-26T00:00:00.000&#43;00:00' itemprop="datePublished">2019-12-26</time>
             </a>
             
             
@@ -78,48 +78,44 @@
             
         </div>
         <div class="article-entry" itemprop="articleBody">
-            <p>I&rsquo;ve had a <a href="https://pcengines.ch/apu2.htm">PCEngines APU2</a> gathering dust for a
-few years, and have recently decided to dust it off.</p>
+            <p>Unfamiliar with running Docker on a SELinux enabled system, I found myself
+running into a bunch of file permission errors while creating volumes.</p>
 
-<p>Since the last time the device has been powered on, there have been many great
-improvements to the firmware, and it was very-much due for an upgrade. The
-following steps outline how the the firmware was upgrade on the APU directly
-from the already-installed operating system &ndash; CentOS.</p>
-
-<p>First, we will connect to the device over the serial port</p>
-
-<pre><code>screen /dev/tty.usbserial 115200
+<pre><code class="language-txt">mkdir: can't create directory '/data': Permission denied
 </code></pre>
 
-<p>Then, we will install the <code>flashrom</code> utility that is needed to update the
-firmware, but because it is not available in the default CentOS package
-repositories, we will enable the <em>Extra Packages for Enterprise Linux</em> (EPEL)
-repository first.</p>
+<hr />
 
-<pre><code class="language-bash">sudo yum install epel-release
-sudo yum install flashrom
+<pre><code class="language-bash">$ docker info --format '{{json .SecurityOptions}}'
+[
+  &quot;name=seccomp,profile=/etc/docker/seccomp.json&quot;,
+  &quot;name=selinux&quot;
+]
 </code></pre>
 
-<p>Next, we will download the latest version of the firmware binary that is
-compatible with the APU2 device from the PC Engines release notes website:
-<a href="https://pcengines.github.io/">https://pcengines.github.io/</a>.</p>
+<p>It turns out that this can be resolved by appending the <code>:z</code> flag to the volume
+mappings in the <code>docker-compose.yml</code> file, indicating that the volume content
+is shared.</p>
 
-<pre><code class="language-bash">curl -O https://3mdeb.com/open-source-firmware/pcengines/apu2/apu2_v4.11.0.1.rom
+<pre><code>services:
+  server:
+    volumes:
+      - ./data:/data:z
 </code></pre>
 
-<p>And finally, we will flash the firmware&hellip;</p>
+<p>From the Docker documentation:</p>
 
-<pre><code class="language-bash">sudo flashrom -w apu2_v4.11.0.1.rom -p internal:boardmismatch=force
-</code></pre>
+<blockquote>
+<p>The <code>z</code> option tells Docker that two containers share the volume content. As
+a result, Docker labels the content with a shared content label. Shared
+volume labels allow all containers to read/write content.</p>
+</blockquote>
 
-<p><strong>References:</strong></p>
+<p><strong>References</strong></p>
 
 <ul>
-<li><a href="https://pcengines.ch/apu2.htm">https://pcengines.ch/apu2.htm</a></li>
-<li><a href="https://pcengines.github.io/">https://pcengines.github.io/</a></li>
-<li><a href="https://github.com/pcengines/apu2-documentation/blob/master/docs/firmware_flashing.md">https://github.com/pcengines/apu2-documentation/blob/master/docs/firmware_flashing.md</a></li>
-<li><a href="https://github.com/pcengines/apu2-documentation/blob/master/docs/cold_reset.md">https://github.com/pcengines/apu2-documentation/blob/master/docs/cold_reset.md</a></li>
-<li><a href="https://github.com/elad/openbsd-apu2">https://github.com/elad/openbsd-apu2</a></li>
+<li><a href="https://docs.docker.com/engine/reference/commandline/info/">Docker Docs: Docker Info</a></li>
+<li><a href="https://docs.docker.com/engine/reference/commandline/run/#mount-volumes-from-container---volumes-from">Docker Docs: Mounting Volumes</a></li>
 </ul>
 
         </div>
@@ -136,12 +132,12 @@ compatible with the APU2 device from the PC Engines release notes website:
             <ul class="article-tag-list">
                 
                 <li class="article-tag-list-item">
-                    <a class="article-tag-list-link" href="https://cmpadden.github.io/blog//tags/pcengine">pcengine
+                    <a class="article-tag-list-link" href="https://cmpadden.github.io/blog//tags/docker">docker
                     </a>
                 </li>
                 
                 <li class="article-tag-list-item">
-                    <a class="article-tag-list-link" href="https://cmpadden.github.io/blog//tags/apu">apu
+                    <a class="article-tag-list-link" href="https://cmpadden.github.io/blog//tags/selinux">selinux
                     </a>
                 </li>
                 
@@ -151,12 +147,10 @@ compatible with the APU2 device from the PC Engines release notes website:
     </div>
     <nav id="article-nav">
     
-    <a href="/blog/posts/docker-selinux-volumes/" id="article-nav-newer" class="article-nav-link-wrap">
-        <div class="article-nav-title"><span>&lt;</span>&nbsp;
-            Docker Volume Permissions with SELinux
-        </div>
-    </a>
     
+    <a href="/blog/posts/apu2-firmware-upgrade/" id="article-nav-older" class="article-nav-link-wrap">
+        <div class="article-nav-title">Upgrading the Firmware on the PCEngines APU2&nbsp;<span>&gt;</span></div>
+    </a>
     
 </nav>
 
