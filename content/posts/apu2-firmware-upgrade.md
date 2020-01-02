@@ -11,8 +11,8 @@ few years, and have recently decided to dust it off.
 
 Since the last time the device has been powered on, there have been many great
 improvements to the firmware, and it was very-much due for an upgrade. The
-following steps outline how the the firmware was upgrade on the APU directly
-from the already-installed operating system -- CentOS.
+following steps outline how the firmware was upgraded on the APU from the
+already-installed operating system -- CentOS.
 
 First, we will connect to the device over the serial port
 
@@ -21,17 +21,17 @@ screen /dev/tty.usbserial 115200
 ```
 
 Then, we will install the `flashrom` utility that is needed to update the
-firmware, but because it is not available in the default CentOS package
-repositories, we will enable the _Extra Packages for Enterprise Linux_ (EPEL)
-repository first.
+firmware. Because it is not available in the default `yum` repositories, we
+will enable the _Extra Packages for Enterprise Linux_ (EPEL) repository before
+installation.
 
 ```bash
 sudo yum install epel-release
 sudo yum install flashrom
 ```
 
-Next, we will download the latest version of the firmware binary that is
-compatible with the APU2 device from the PC Engines release notes website:
+Next, we will download the latest version of the firmware that is compatible
+with the APU2 device from the PC Engines release website:
 <https://pcengines.github.io/>.
 
 ```bash
