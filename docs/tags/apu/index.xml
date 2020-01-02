@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>apu on Blog</title>
+    <title>apu on Technical Log</title>
     <link>https://cmpadden.github.io/blog/tags/apu/</link>
-    <description>Recent content in apu on Blog</description>
+    <description>Recent content in apu on Technical Log</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sat, 21 Dec 2019 00:00:00 +0000</lastBuildDate>

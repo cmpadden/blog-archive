@@ -1,98 +1,105 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-    <title>Docker Volume Permissions with SELinux // Blog</title>
-
+    
     <meta charset="utf-8">
-    <meta http-equiv="content-type" content="text/html; charset=utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta http-equiv="X-UA-Compatible" content="chrome=1">
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="referrer" content="no-referrer">
+<meta name="description" content="Personal technical diary">
+<title>
+Docker Volume Permissions with SELinux - Technical Log
+</title>
+
+
+
+
+<link rel="shortcut icon" href="/blog/favicon.ico">
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/blog/css/main.min.81bbafc4df93b11c1c3e2449464373c384aa4903731b4fc7a77dfcdd979e184f.css" integrity="sha256-gbuvxN&#43;TsRwcPiRJRkNzw4SqSQNzG0/Hp3383ZeeGE8=" crossorigin="anonymous" media="screen">
+
+
+
+ 
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Didact+Gothic">
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://cmpadden.github.io/blog/tn.png"/>
+
+<meta name="twitter:title" content="Docker Volume Permissions with SELinux"/>
+<meta name="twitter:description" content="Unfamiliar with running Docker on a SELinux enabled system, I found myself running into a bunch of file permission errors while creating volumes.
+mkdir: can&#39;t create directory &#39;/data&#39;: Permission denied $ docker info --format &#39;{{json .SecurityOptions}}&#39; [ &#34;name=seccomp,profile=/etc/docker/seccomp.json&#34;, &#34;name=selinux&#34; ] It turns out that this can be resolved by appending the :z flag to the volume mappings in the docker-compose.yml file, indicating that the volume content is shared.
+services: server: volumes: - ."/>
+
+<meta property="og:title" content="Docker Volume Permissions with SELinux" />
+<meta property="og:description" content="Unfamiliar with running Docker on a SELinux enabled system, I found myself running into a bunch of file permission errors while creating volumes.
+mkdir: can&#39;t create directory &#39;/data&#39;: Permission denied $ docker info --format &#39;{{json .SecurityOptions}}&#39; [ &#34;name=seccomp,profile=/etc/docker/seccomp.json&#34;, &#34;name=selinux&#34; ] It turns out that this can be resolved by appending the :z flag to the volume mappings in the docker-compose.yml file, indicating that the volume content is shared.
+services: server: volumes: - ." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://cmpadden.github.io/blog/posts/docker-selinux-volumes/" />
+
+<meta property="og:image" content="https://cmpadden.github.io/blog/tn.png" />
+<meta property="article:published_time" content="2019-12-26T00:00:00+00:00" />
+<meta property="article:modified_time" content="2019-12-26T00:00:00+00:00" /><meta property="og:site_name" content="Technical Diary" />
+
+
+    
+
     
     
     
-
-        <meta property="og:title" content="Docker Volume Permissions with SELinux" />
-    <meta property="og:description" content="" />
-    <meta property="og:type" content="website" />
-    <meta property="og:locale" content="en" />
-    <meta property="og:url" content="https://cmpadden.github.io/blog/posts/docker-selinux-volumes/" />
-    
-
-    <link rel="shortcut icon" href="/favicon.ico">
-
-    <link href="https://cmpadden.github.io/blog/webfonts/ptserif/main.css" rel='stylesheet' type='text/css'>
-    <link href="https://cmpadden.github.io/blog/webfonts/source-code-pro/main.css" rel="stylesheet" type="text/css">
-
-    <link rel="stylesheet" href="https://cmpadden.github.io/blog/css/style.css">
-    
-
-    <meta name="generator" content="Hugo 0.58.1" />
+    <title>
+        
+        Docker Volume Permissions with SELinux
+        
+    </title>
 </head>
 
-
 <body>
-<div id="container">
-    <header id="header">
-    <div id="header-outer" class="outer">
-        <div id="header-inner" class="inner">
-            <a id="main-nav-toggle" class="nav-icon" href="javascript:;"></a>
-            <a id="logo" class="logo-text" href="https://cmpadden.github.io/blog/">Blog</a>
-            <nav id="main-nav">
-                
-            </nav>
-            <nav id="sub-nav">
-                <div id="search-form-wrap">
-                </div>
-            </nav>
-        </div>
-    </div>
-</header>
+    <div class="wrap">
+        <div class="section" id="title">Docker Volume Permissions with SELinux</div>
 
-    <section id="main" class="outer">
-        <article class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
         
-        <header class="article-header">
-            <h1 class="article-title" itemprop="name">Docker Volume Permissions with SELinux</h1>
-        </header>
+<div class="section" id="content">
+    Thu Dec 26, 2019 &#183; 119 words
+    
+    <div class="tag-container">
         
-        <div class="article-meta">
-            <a href="/blog/posts/docker-selinux-volumes/" class="article-date">
-                <time datetime='2019-12-26T00:00:00.000&#43;00:00' itemprop="datePublished">2019-12-26</time>
+        <span class="tag">
+            <a href="https://cmpadden.github.io/blog/tags/docker">
+                docker
             </a>
-            
-            
-            <div class="post-categories">
-                <div class="article-category">
-                    
-                    
-                    <a class="article-category-link" href="https://cmpadden.github.io/blog//categories/linux">linux</a>
-                    
-                    
-                    <span>&gt;</span>
-                    
-                    <a class="article-category-link" href="https://cmpadden.github.io/blog//categories/sysadmin">sysadmin</a>
-                    
-                </div>
-            </div>
-            
-            
-        </div>
-        <div class="article-entry" itemprop="articleBody">
-            <p>Unfamiliar with running Docker on a SELinux enabled system, I found myself
+        </span>
+        
+        <span class="tag">
+            <a href="https://cmpadden.github.io/blog/tags/selinux">
+                selinux
+            </a>
+        </span>
+        
+    </div>
+    
+    <hr/>
+    <p>Unfamiliar with running Docker on a SELinux enabled system, I found myself
 running into a bunch of file permission errors while creating volumes.</p>
-
-<pre><code class="language-txt">mkdir: can't create directory '/data': Permission denied
-</code></pre>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-txt" data-lang="txt">mkdir: can&#39;t create directory &#39;/data&#39;: Permission denied</code></pre></div>
 <hr />
-
-<pre><code class="language-bash">$ docker info --format '{{json .SecurityOptions}}'
-[
-  &quot;name=seccomp,profile=/etc/docker/seccomp.json&quot;,
-  &quot;name=selinux&quot;
-]
-</code></pre>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ docker info --format <span style="color:#e6db74">&#39;{{json .SecurityOptions}}&#39;</span>
+<span style="color:#f92672">[</span>
+  <span style="color:#e6db74">&#34;name=seccomp,profile=/etc/docker/seccomp.json&#34;</span>,
+  <span style="color:#e6db74">&#34;name=selinux&#34;</span>
+<span style="color:#f92672">]</span></code></pre></div>
 <p>It turns out that this can be resolved by appending the <code>:z</code> flag to the volume
 mappings in the <code>docker-compose.yml</code> file, indicating that the volume content
 is shared.</p>
@@ -118,73 +125,40 @@ volume labels allow all containers to read/write content.</p>
 <li><a href="https://docs.docker.com/engine/reference/commandline/run/#mount-volumes-from-container---volumes-from">Docker Docs: Mounting Volumes</a></li>
 </ul>
 
-        </div>
-
-        
-        
-        
-
-        
-
-
-        
-        <footer class="article-footer">
-            <ul class="article-tag-list">
-                
-                <li class="article-tag-list-item">
-                    <a class="article-tag-list-link" href="https://cmpadden.github.io/blog//tags/docker">docker
-                    </a>
-                </li>
-                
-                <li class="article-tag-list-item">
-                    <a class="article-tag-list-link" href="https://cmpadden.github.io/blog//tags/selinux">selinux
-                    </a>
-                </li>
-                
-            </ul>
-        </footer>
-        
-    </div>
-    <nav id="article-nav">
-    
-    
-    <a href="/blog/posts/apu2-firmware-upgrade/" id="article-nav-older" class="article-nav-link-wrap">
-        <div class="article-nav-title">Upgrading the Firmware on the PCEngines APU2&nbsp;<span>&gt;</span></div>
-    </a>
-    
-</nav>
-
-</article>
-
-        
-    </section>
-    <footer id="footer">
-    <div class="outer">
-        <div id="footer-info" class="inner">
-            &copy; 2019 Blog
-            <br />
-            Powered by <a href="https://gohugo.io" target="_blank">Hugo</a> with theme <a href="https://github.com/carsonip/hugo-theme-minos" target="_blank">Minos</a>
-        </div>
-    </div>
-    
-
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/tomorrow-night.min.css" integrity="sha256-2wL88NKUqvJi/ExflDzkzUumjUM73mcK2gBvBBeLvTk=" crossorigin="anonymous" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js" integrity="sha256-KbfTjB0WZ8vvXngdpJGY3Yp3xKk+tttbqClO11anCIU=" crossorigin="anonymous"></script>
-    <script>hljs.initHighlightingOnLoad();</script>
-
-    
-    <script>
-        document.getElementById('main-nav-toggle').addEventListener('click', function () {
-            var header = document.getElementById('header');
-            if (header.classList.contains('mobile-on')) {
-                header.classList.remove('mobile-on');
-            } else {
-                header.classList.add('mobile-on');
-            }
-        });
-    </script>
-</footer>
-
 </div>
+
+
+        
+<div class="section bottom-menu">
+    
+<hr />
+<p>
+
+
+    
+        <a href="/blog/posts">back</a>
+        
+            &#183;
+        
+    
+
+    
+        
+            <a href="/blog/posts">Posts</a>
+        
+    
+    
+    &#183; 
+    <a href="https://cmpadden.github.io/blog/">
+        main
+    </a>
+
+</p>
+</div>
+
+
+        <div class="section footer">The troubleshooting log</div>
+    </div>
 </body>
+
 </html>

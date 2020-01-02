@@ -3,11 +3,6 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://cmpadden.github.io/blog/</loc>
-    <lastmod>2019-12-26T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://cmpadden.github.io/blog/categories/</loc>
     <lastmod>2019-12-26T00:00:00+00:00</lastmod>
   </url>
@@ -44,6 +39,11 @@
   
   <url>
     <loc>https://cmpadden.github.io/blog/tags/</loc>
+    <lastmod>2019-12-26T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://cmpadden.github.io/blog/</loc>
     <lastmod>2019-12-26T00:00:00+00:00</lastmod>
   </url>
   
