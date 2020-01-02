@@ -1,5 +1,4 @@
 baseurl = "https://cmpadden.github.io/blog/"
-publishDir = "docs"
 
 languageCode             = "en-us"
 defaultContentLanguage   = "en"
