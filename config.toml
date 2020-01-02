@@ -1,11 +1,29 @@
 baseurl = "https://cmpadden.github.io/blog/"
 publishDir = "docs"
 
-title = "Blog"
-languageCode = "en-us"
-
-theme = "hugo-theme-minos"
-paginate = 10
+languageCode             = "en-us"
+defaultContentLanguage   = "en"
+isMultilingual           = false
+title                    = "Technical Log"
+theme = "hugo-theme-sam"
+pygmentsStyle            = "monokai"                        # https://help.farbox.com/pygments.html
+pygmentsCodefences       = true
 
 [params]
-    smartToc = false
+    dateform             = "Mon Jan 02, 2006"
+    dateformfull         = "Mon Jan 2 2006 15:04:05 EST"
+    favicon              = "favicon.ico"
+    homepage             = "main"                           # What to call the home page link
+    footerText           = "The troubleshooting log"
+
+# Metadata for Open Graph and Twitter
+    description          = "Personal technical diary"       # Max 160 characters show in search results
+    images               = ["tn.png"]                       # Image that shows on Twitter cards and Open Graph links to the site
+    title                = "Technical Diary"
+
+[[params.mainMenu]]
+    link = "/blog/posts"
+    text = "Posts"
+
+[imaging]
+    quality = 75
