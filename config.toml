@@ -7,6 +7,7 @@ title                    = "Technical Log"
 theme = "hugo-theme-sam"
 pygmentsStyle            = "monokai"                        # https://help.farbox.com/pygments.html
 pygmentsCodefences       = true
+enableEmoji              = true
 
 [params]
     dateform             = "Mon Jan 02, 2006"
