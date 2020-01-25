@@ -190,17 +190,17 @@ Stderr: VBoxManage.exe: error: Machine '060a716b-1965-49e2-bc56-12beed5df716' is
 
 ## References
 
-- [1: Docker Desktop on Mac vs. Docker Toolbox][1]
-- [2: GitHub - HyperKit][2]
-- [3: GitHub - Docker for Mac - Issue #900][3]
-- [4: Vagrant Cloud - Arch Linux][4]
-- [5: Attaching USB Devices to VirtualBox Guests using VBoxManage][5]
-- [6: GitHub Gist - Vagrant USB Filter][6]
-- [7: Arch Linux Wiki - EFI System Partition - Format Partitions][7]
-- [8: Arch Linux Wiki - Arch Linux on USB - Installation Tweaks][8]
-- [9: Arch Linux Wiki - Installation Guide][9]
-- [10: Arch Linux Wiki - GRUB - UEFI Systems][10]
-- [11: Vagrant VBoxManage Customizations ][11]
+1. [Docker Desktop on Mac vs. Docker Toolbox][1]
+1. [GitHub - HyperKit][2]
+1. [GitHub - Docker for Mac - Issue #900][3]
+1. [Vagrant Cloud - Arch Linux][4]
+1. [Attaching USB Devices to VirtualBox Guests using VBoxManage][5]
+1. [GitHub Gist - Vagrant USB Filter][6]
+1. [Arch Linux Wiki - EFI System Partition - Format Partitions][7]
+1. [Arch Linux Wiki - Arch Linux on USB - Installation Tweaks][8]
+1. [Arch Linux Wiki - Installation Guide][9]
+1. [Arch Linux Wiki - GRUB - UEFI Systems][10]
+1. [Vagrant VBoxManage Customizations ][11]
 
 [1]: https://docs.docker.com/docker-for-mac/docker-toolbox/
 [2]: https://github.com/moby/hyperkit

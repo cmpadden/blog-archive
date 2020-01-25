@@ -1,33 +1,57 @@
-baseurl = "https://cmpadden.github.io/blog/"
+baseURL   = "https://cmpadden.github.io/blog/"
+title     = "Developer Diary"
+theme     = "hugo-notepadium"
+copyright = "© 2020 Colton Padden"
 
-languageCode             = "en-us"
-defaultContentLanguage   = "en"
-isMultilingual           = false
-title                    = "Technical Log"
-theme = "hugo-theme-sam"
-pygmentsStyle            = "monokai"                        # https://help.farbox.com/pygments.html
-pygmentsCodefences       = true
-enableEmoji              = true
+languageCode           = "en"
+defaultContentLanguage = "en"
+enableEmoji            = true
+hasCJKLanguage         = false
+
+enableRobotsTXT = true
+
+# Enable Disqus
+# disqusShortname = "XXX"
+
+# Google Analytics
+# googleAnalytics = "UA-123-45"
+
+[markup.highlight]
+codeFences = true
+noClasses = false
+
+[markup.goldmark.renderer]
+unsafe = false  # enable raw HTML in Markdown
 
 [params]
-    dateform             = "Mon Jan 02, 2006"
-    dateformfull         = "Mon Jan 2 2006 15:04:05 EST"
-    favicon              = "favicon.ico"
-    homepage             = "main"                           # What to call the home page link
-    footerText           = "The troubleshooting log"
+style = "light"
+readingTime = false  # show reading time after article date
+logo = ""
+slogan = ""
 
-# Metadata for Open Graph and Twitter
-    description          = "Personal technical diary"       # Max 160 characters show in search results
-    images               = ["tn.png"]                       # Image that shows on Twitter cards and Open Graph links to the site
-    title                = "Technical Diary"
+[params.assets]
+css = ["css/fonts.css"]
 
-[[params.mainMenu]]
-    link = "/blog/posts"
-    text = "posts"
+[params.comments]
+enable = false  # enable comments globally
 
-[[params.mainMenu]]
-    link = "/blog/whoami"
-    text = "whoami"
+[params.math]
+enable = false # load math globally
+use = "katex"  # builtin: "katex", "mathjax".  default: "katex"
 
-[imaging]
-    quality = 75
+[params.syntax]
+use = "hljs"  # builtin: "prismjs", "hljs". "none" means Chroma
+theme = "xcode"
+darkTheme = "xcode-dark"
+
+[params.nav]
+showCategories = true       # /categories/
+showTags = false             # /tags/
+
+[[params.nav.custom]]
+title = "About"
+url = "/about/"
+
+[[params.nav.custom]]
+title = "Categories"
+url = "/categories/"
