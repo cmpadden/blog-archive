@@ -11,7 +11,7 @@ hasCJKLanguage         = false
 enableRobotsTXT = true
 
 # Enable Disqus
-# disqusShortname = "XXX"
+disqusShortname = "cmpadden-blog"
 
 # Google Analytics
 # googleAnalytics = "UA-123-45"
@@ -33,7 +33,7 @@ slogan = ""
 css = ["css/fonts.css"]
 
 [params.comments]
-enable = false  # enable comments globally
+enable = true  # enable comments globally
 
 [params.math]
 enable = false # load math globally
