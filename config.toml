@@ -11,10 +11,7 @@ hasCJKLanguage         = false
 enableRobotsTXT = true
 
 # Enable Disqus
-disqusShortname = "cmpadden-blog"
-
-# Google Analytics
-# googleAnalytics = "UA-123-45"
+# disqusShortname = "cmpadden-blog"
 
 [markup.highlight]
 codeFences = true
@@ -30,10 +27,10 @@ logo = ""
 slogan = ""
 
 [params.assets]
-css = ["css/fonts.css"]
+css = ["css/fonts.css", "css/custom.css"]
 
 [params.comments]
-enable = true  # enable comments globally
+# enable = false  # enable comments globally
 
 [params.math]
 enable = false # load math globally
