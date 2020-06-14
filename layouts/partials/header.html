@@ -1,0 +1,14 @@
+<nav class="flex justify-between text-gray-200 mx-12 mb-2 py-3 font-semibold">
+    <div>
+        <a href="{{ .Site.Home.Permalink }}" class="mr-2 px-2 py-2 hover:bg-gray-600 hover:text-white">
+            Home
+        </a>
+    </div>
+    <div class="justify-end">
+        <!-- right-aligned items -->
+        {{ range .Site.Sections }}
+        <a href="{{ .Permalink }}" class="mr-2 px-2 py-2 hover:bg-gray-600 hover:text-white">{{ .Title }}</a>
+        {{ end }}
+        <a href="https://twitter.com/coltonpadden" class="mr-2 px-2 py-2 hover:bg-gray-600 hover:text-white">Twitter</a>
+    </div>
+</nav>

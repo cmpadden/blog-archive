@@ -1,54 +1,15 @@
+title = "Developer Log"
+
 baseURL   = "https://cmpadden.github.io/blog/"
-title     = "Developer Diary"
-theme     = "hugo-notepadium"
 copyright = "© 2020 Colton Padden"
 
-languageCode           = "en"
 defaultContentLanguage = "en"
+languageCode           = "en"
+
 enableEmoji            = true
-hasCJKLanguage         = false
+enableRobotsTXT        = true
 
-enableRobotsTXT = true
-
-# Enable Disqus
-# disqusShortname = "cmpadden-blog"
-
-[markup.highlight]
-codeFences = true
-noClasses = false
-
-[markup.goldmark.renderer]
-unsafe = false  # enable raw HTML in Markdown
-
-[params]
-style = "light"
-readingTime = false  # show reading time after article date
-logo = ""
-slogan = ""
-
-[params.assets]
-css = ["css/fonts.css", "css/custom.css"]
-
-[params.comments]
-# enable = false  # enable comments globally
-
-[params.math]
-enable = false # load math globally
-use = "katex"  # builtin: "katex", "mathjax".  default: "katex"
-
-[params.syntax]
-use = "hljs"  # builtin: "prismjs", "hljs". "none" means Chroma
-theme = "xcode"
-darkTheme = "xcode-dark"
-
-[params.nav]
-showCategories = true       # /categories/
-showTags = false             # /tags/
-
-[[params.nav.custom]]
-title = "About"
-url = "/about/"
-
-[[params.nav.custom]]
-title = "Categories"
-url = "/categories/"
+[markup]
+  [markup.highlight]
+    lineNos = true
+    style = "monokailight"

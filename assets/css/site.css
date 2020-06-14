@@ -1,0 +1,54 @@
+/**
+ * Apply Tailwind Styles to Generated HTML
+ */
+
+article > p, ul, ol {
+    @apply tracking-wide;
+}
+
+article > div, p, ul, ol, pre:not(:last-child) {
+    @apply mb-2;
+}
+
+article > li:not(:last-of-type) {
+    @apply mb-2;
+}
+
+article p > code {
+    @apply bg-white;
+}
+
+article > h2 {
+    @apply text-2xl my-4 font-bold text-grayish;
+}
+
+/**
+ * Custom Styling
+ */
+
+.gradient-highlight {
+  color: theme('colors.black');
+  background-image: linear-gradient(120deg, theme('colors.blue.400') 0%, theme('colors.blue.200') 100%);
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-position: 0 100%;
+  padding: 0.15rem;
+  transition: background-size 0.25s ease-in;
+}
+
+.gradient-underline {
+  background-image: linear-gradient(120deg, theme('colors.blue.400') 0%, theme('colors.blue.200') 100%);
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-size: 100% 10%;
+  background-position: 0 100%;
+  padding: 0.15rem;
+  transition: background-size 500ms ease-in;
+}
+
+/* optional class for animating the gradient when hovered */
+.gradient-hover:hover {
+  color: theme('colors.black');
+  background-size: 100% 100%;
+  transition: color 500ms linear;
+}
