@@ -1,6 +1,6 @@
 title = "Developer Log"
 
-baseURL   = "https://cmpadden.github.io/"
+baseURL   = "https://cmpadden.github.io/blog/"
 copyright = "© 2020 Colton Padden"
 
 defaultContentLanguage = "en"
