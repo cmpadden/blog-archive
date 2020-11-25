@@ -2,7 +2,7 @@
 title: "Create a Persistent Arch Linux Bootable USB with Vagrant"
 date: 2020-01-09
 draft: false
-tags: ["vagrant", "archlinux", "personal-knowledge-store"]
+tags: ["vagrant", "archlinux"]
 categories: ["linux"]
 ---
 

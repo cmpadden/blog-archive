@@ -2,8 +2,8 @@
 title: "Docker Volume Permissions with SELinux"
 date: 2019-12-26
 draft: false
-tags: ["docker", "selinux", "personal-knowledge-store"]
-categories: ["linux", "sysadmin"]
+tags: ["docker", "selinux"]
+categories: ["linux"]
 ---
 
 Unfamiliar with running Docker on a SELinux enabled system, I found myself

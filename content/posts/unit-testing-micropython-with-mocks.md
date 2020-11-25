@@ -2,8 +2,8 @@
 title: "Unit Testing in MicroPython with Mocks"
 date: "2020-02-07"
 draft: false
-tags: ["micropython", "testing", "mocks", "example"]
-categories: ["micropython"]
+tags: ["micropython", "testing", "mocks", "tutorial"]
+categories: ["python", "embedded"]
 ---
 
 # Mocking
