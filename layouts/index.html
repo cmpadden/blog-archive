@@ -1,9 +1,10 @@
 {{ define "main" }}
 
 <!-- Hero -->
-<section class="container mx-auto">
-    <div class="mx-16 md:mx-32 lg:mx-64 xl:mx-72">
-        <h1 class="sm:text-2xl lg:text-4xl font-bold leading-tight text-teal-300">About Me</h1>
+<section class="container mx-auto pb-16">
+    <div class="mx-6 md:mx-12 p-2">
+        <h1 class="sm:text-2xl lg:text-4xl font-bold leading-tight
+            text-teal-300 pb-4">About Me</h1>
         <div class="sm:text-base lg:text-xl font-medium tracking-wide text-teal-400">
             I am a <span class="gradient-highlight">data engineer and web developer</span> working at the <a
                 class="gradient-underline" target="_blank" rel="noopener noreferrer"
@@ -17,79 +18,58 @@
     </div>
 </section>
 
-<!-- wave divider -->
-<div class="relative -my-px">
-    <img src="images/wave.svg" />
-</div>
-
-
 <!-- Technical Interests -->
-<section class="text-white bg-blackish py-16">
+<section class="text-white bg-blackish py-12 bg-gradient-to-r from-blackish to-pink-600">
     <div class="container mx-auto">
-        <div class="mx-16 md:mx-32 lg:mx-64 xl:mx-72">
-            <div class="flex flex-wrap-reverse items-center">
-                <div class="w-full sm:w-1/2 md:w-2/3 pr-10">
-                    <h3 class="sm:text-xl lg:text-3xl font-bold">Technical Interests</h3>
-                    <ul class="sm:tex-base lg:text-xl list-disc list-inside">
-                        <li>Large Scale Parallel Computing</li>
-                        <li>IoT &amp; Embedded Systems</li>
-                        <li>Programming Languages</li>
-                    </ul>
+        <div class="mx-6 md:mx-12">
+            <div class="flex flex-wrap-reverse">
+
+                <div class="w-full md:w-1/3 p-2">
+                    <div class="bg-black bg-opacity-25 h-full p-3 border">
+                        <h3 class="text-xl font-bold text-center">Technical Interests</h3>
+                        <ul class="text-base list-disc">
+                            <li>Data Pipeline Engineering</li>
+                            <li>Distributed Systems</li>
+                            <li>Embedded Systems</li>
+                            <li>Programming Languages</li>
+                            <li>Developer Tooling</li>
+                        </ul>
+                    </div>
                 </div>
-                <div class="w-full sm:w-1/2 md:w-1/3">
-                    <img alt="Macbook laptop graphic" src="images/macbook.svg" />
+
+                <div class="w-full md:w-1/3 p-2">
+                    <div class="bg-black bg-opacity-25 h-full p-3 border">
+                        <h3 class="text-xl font-bold text-center">Air
+                            Quality Initiative</h3>
+                        <p class="text-base mb-8">
+                            I am a founding member and technical adviser to <a class="gradient-underline"
+                                href="https://guaq.tech">Globally Unified Air Quality</a>, a
+                            startup aiming to provide low-cost solutions for measuring and
+                            analysing air-quality conditions around the world.
+                        </p>
+                    </div>
                 </div>
+
+                <div class="w-full md:w-1/3 p-2">
+                    <div class="bg-black bg-opacity-25 h-full p-3 border">
+                        <h3 class="text-xl font-bold text-center">Previously</h3>
+                        <p class="text-base mb-8">
+                            I worked as a technical consultant for financial
+                            institutions and government agencies in the Washington,
+                            D.C. area, providing guidance on identity and access management, and
+                            big data solutions.
+                        </p>
+                    </div>
+                </div>
+
             </div>
         </div>
     </div>
-</section>
 
-
-<!-- Air Quality -->
-<section class="text-white py-16">
-    <div class="container mx-auto">
-        <div class="mx-16 md:mx-32 lg:mx-64 xl:mx-72">
-            <div class="flex flex-wrap items-center">
-                <div class="w-full sm:w-1/2 md:w-2/3 pr-10">
-                    <h3 class="sm:text-xl lg:text-3xl font-bold leading-none mb-3">Air Quality</h3>
-                    <p class="sm:text-base lg:text-xl mb-8">
-                        I am a founding member and technical adviser to <a class="gradient-underline"
-                            href="https://guaq.tech">Globally Unified Air Quality</a>, a
-                        startup aiming to provide low-cost solutions for measuring and
-                        analysing air-quality conditions around the world.
-                    </p>
-                </div>
-                <div class="w-full sm:w-1/2 md:w-1/3">
-                    <img alt="Microscope and beakers graphic" src="images/science.svg" />
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Previously -->
-<section class="bg-blackish text-white pt-16 -my-1">
-    <div class="container mx-auto">
-        <div class="mx-16 md:mx-32 lg:mx-64 xl:mx-72">
-            <div class="flex flex-wrap-reverse items-center">
-                <div class="w-full sm:w-1/2 md:w-1/3 pr-10">
-                    <img alt="Rocketship graphic" src="images/rocket.svg" />
-                </div>
-                <div class="w-full sm:w-1/2 md:w-2/3">
-                    <h3 class="sm:text-xl lg:text-3xl font-bold leading-none mb-3">Previously</h3>
-                    <p class="sm:text-base lg:text-xl mb-8">
-                        I worked as a technical consultant for financial
-                        institutions and government agencies in the Washington,
-                        D.C. area, providing identity and access management, and
-                        big data solutions.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </div>
 </section>
 
 <article class="text-center text-gray-700 bg-orange-100">
     {{ .Content }}
 </article>
+
 {{ end }}
