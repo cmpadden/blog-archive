@@ -64,8 +64,8 @@ article p > code {
  */
 
 .gradient-highlight {
-  color: theme('colors.black');
-  background-image: linear-gradient(120deg, theme('colors.blue.400') 0%, theme('colors.blue.200') 100%);
+  color: theme('colors.white');
+  background-image: linear-gradient(120deg, theme('colors.blue.700') 0%, theme('colors.pink.700') 100%);
   background-repeat: no-repeat;
   background-size: 100% 100%;
   background-position: 0 100%;
